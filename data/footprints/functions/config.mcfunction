@@ -36,23 +36,23 @@ scoreboard players set $CONFIG_MODE 4p5.ftprnt.cfg 0
 ##          Created by 4P5 (https://www.youtube.com/4P5mc)
 ## 
 ## STRUCTURE:
-##          Ticking function is `tick`, running `movement_check` and `time_check`.
-##          `walk` is conditional, and runs `step_*`, and `remove` conditionally.
+##          Ticking function is `tick`, running `movement_check` and `time_check`, and `limit_check` conditionally.
+##          `walk` is conditional, and runs `step_*` conditionally.
 ##          `step_after` runs `overhang_check`.
 ##          `load` runs `config`.
 ##                                                                                                               
-##                                            tick                                          load             
-##                                          / /    \                                         |                                  
-##                          _______________/ /      \                                        |
-##                         /                /        \                                     config                                             
+##                                            tick                  load             
+##                                          / /    \                  |                                  
+##                          _______________/ /      \                 |
+##                         /                /        \              config                                             
 ##              limit_check(c)  movement_check     walk(c)                                    
-##                    |            time_check         |                                                                              
-##                    |                               |   
-##                remove(c)                      step_generic                                                                            
-##                                               step_height                                                                                           
-##                                                step_after                                                                                
-##                                                    |
-##                                                    |
-##                                              overhang_check                                                                                          
+##                    |            time_check     /       \                                                                             
+##                    |                          /         \
+##                remove(c)               step_generic    step_after                                                                        
+##                                       step_height          |                                                                                  
+##                                                            |                                                                            
+##                                                      overhang_check
+##                                                    
+##                                                                                                                                        
 ##                                                                                                                          
 ####################################################################################################################
