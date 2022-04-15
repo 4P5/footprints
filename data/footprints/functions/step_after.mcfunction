@@ -4,4 +4,4 @@
 execute as @e[tag=4p5.ftprnt.temp,type=armor_stand] at @s positioned ~ ~0.97826 ~ run function footprints:overhang_check
 
 # Remove the temporary tag.
-tag @e[tag=4p5.ftprnt.temp,type=armor_stand] remove 4p5.ftprnt.temp
+tag @e remove 4p5.ftprnt.temp
