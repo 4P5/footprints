@@ -18,5 +18,5 @@ function footprints:config
 
 # Modify timeouts to fit the config.
 scoreboard players operation $CONFIG_KILL 4p5.ftprnt.cfg = $CONFIG_DURATION 4p5.ftprnt.cfg
-scoreboard players add $CONFIG_KILL 4p5.ftprnt.cfg 50
+scoreboard players add $CONFIG_KILL 4p5.ftprnt.cfg 10
 
