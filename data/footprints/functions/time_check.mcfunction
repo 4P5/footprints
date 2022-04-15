@@ -4,4 +4,4 @@ execute if score @s 4p5.ftprnt.rem >= $CONFIG_DURATION 4p5.ftprnt.cfg at @s run 
 execute if score @s 4p5.ftprnt.rem >= $CONFIG_KILL 4p5.ftprnt.cfg run kill @s
 
 # Remove footprints if their blocks have been broken.
-execute as @e[type=armor_stand,tag=4p5.ftprnt.print] at @s positioned ~ ~0.97826 ~ if block ~ ~ ~ air run kill @s
+execute at @s positioned ~ ~0.97826 ~ if block ~ ~ ~ air run kill @s
