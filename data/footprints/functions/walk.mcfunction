@@ -19,7 +19,7 @@ execute store result score $FOOTPRINT_COUNT 4p5.ftprnt.temp if entity @e[type=mi
 execute if score $FOOTPRINT_COUNT 4p5.ftprnt.temp >= $FOOTPRINT_LIMIT 4p5.ftprnt.temp run function footprints:remove
 
 ## Now check for the "hard limit", which will forcibly remove all footprints regardless of status or age. This is ugly, which is why the soft limit is preferred.
-# Check again, but include decaying footprints.
+# Check again, but include decaying footprints (as it's a hard limit/emergence scenario).
 execute store result score $FOOTPRINT_COUNT 4p5.ftprnt.temp if entity @e[type=minecraft:armor_stand,tag=4p5.ftprnt.print]
 # If we've exceeded the global hard limit, forcibly kill all footprints.
 execute if score $FOOTPRINT_COUNT 4p5.ftprnt.temp >= $MAX_GLOBAL 4p5.ftprnt.cfg run kill @e[type=armor_stand,tag=4p5.ftprnt.print]
@@ -32,8 +32,8 @@ execute if score $FOOTPRINT_COUNT 4p5.ftprnt.temp >= $MAX_GLOBAL 4p5.ftprnt.cfg 
 function footprints:step_generic
 
 # Alternate between left and right footprints, using a temporary objective to ensure only one of the functions runs. We'll set the height of the current block with this offset in mind.
-execute unless entity @s[tag=4p5.ftprnt.alt] positioned ^.3 ^ ^ run function footprints:step_height
-execute if entity @s[tag=4p5.ftprnt.alt] positioned ^-.3 ^ ^ run function footprints:step_height
+execute unless entity @s[tag=4p5.ftprnt.alt] positioned ^.2 ^ ^ run function footprints:step_height
+execute if entity @s[tag=4p5.ftprnt.alt] positioned ^-.1 ^ ^ run function footprints:step_height
 
 # Toggle the tag between on and off to use the other foot for the next print.
 execute store success score @s 4p5.ftprnt.temp run tag @s remove 4p5.ftprnt.alt
