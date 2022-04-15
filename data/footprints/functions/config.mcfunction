@@ -5,7 +5,7 @@
 ####################################################################################################################
 ## How many ticks (1 second = 20 ticks) should the footprint stay before decaying? Default is 300 ticks (15 seconds).
 ## They're not very laggy, but may look ugly if there's too many in one place. Decay always takes a set time on top of this.
-scoreboard players set $CONFIG_DURATION 4p5.ftprnt.cfg 3000
+scoreboard players set $CONFIG_DURATION 4p5.ftprnt.cfg 300
 ###################################################### ^^^^^ #######################################################
 
 ####################################################################################################################
@@ -22,7 +22,7 @@ scoreboard players set $CONFIG_DISTANCE 4p5.ftprnt.cfg 80
 ## Note that the hard (global) limit will immediately kill all footprints (ugly), while the per-player limit will just set them to decay.
 scoreboard players set $MAX_PER_PLAYER 4p5.ftprnt.cfg 50
 ##                                                    ^^^
-scoreboard players set $MAX_GLOBAL 4p5.ftprnt.cfg 500
+scoreboard players set $MAX_GLOBAL 4p5.ftprnt.cfg 1000
 ################################################# ^^^^ #############################################################
 
 ####################################################################################################################
@@ -41,17 +41,18 @@ scoreboard players set $CONFIG_MODE 4p5.ftprnt.cfg 0
 ##          `step_after` runs `overhang_check`.
 ##          `load` runs `config`.
 ##                                                                                                               
-##                       tick                    load                                                                                        
-##                     /      \                    |
-##                    /        \                   |                                            
-##          movement_check    walk(c)           config                                             
-##            time_check     /       \                                                                              
-##                          /         \
-##                   step_generic    remove(c)                                                                        
-##                  step_height                                                                                           
-##                 step_after                                                                                
-##                     |
-##                     |
-##               overhang_check                                                                                          
-##                                                                                                                                                                                       
+##                                            tick                                          load             
+##                                          / /    \                                         |                                  
+##                          _______________/ /      \                                        |
+##                         /                /        \                                     config                                             
+##              limit_check(c)  movement_check     walk(c)                                    
+##                    |            time_check         |                                                                              
+##                    |                               |   
+##                remove(c)                      step_generic                                                                            
+##                                               step_height                                                                                           
+##                                                step_after                                                                                
+##                                                    |
+##                                                    |
+##                                              overhang_check                                                                                          
+##                                                                                                                          
 ####################################################################################################################
