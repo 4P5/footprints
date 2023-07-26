@@ -10,8 +10,8 @@ scoreboard players set $CONFIG_DURATION 4p5.ftprnt.cfg 300
 
 ####################################################################################################################
 ## How many centimeters should the player walk to create a footprint?
-## 160 is the default, since that's the rough time between the footstep sounds.
-## Visually, however, there's a rather large gap. If you prefer smaller gaps, you can set this to something like 80.
+## The default is 80, as that gives a decent gap size. If you want it to be in sync with the game audio,
+## you can set it to 160, which is the rough time between the footstep sounds, but the gap between them will increase.
 scoreboard players set $CONFIG_DISTANCE 4p5.ftprnt.cfg 80
 ###################################################### ^^^ #########################################################
 
@@ -53,6 +53,4 @@ scoreboard players set $CONFIG_MODE 4p5.ftprnt.cfg 0
 ##                                                            |                                                                            
 ##                                                      overhang_check
 ##                                                    
-##                                                                                                                                        
-##                                                                                                                          
 ####################################################################################################################
